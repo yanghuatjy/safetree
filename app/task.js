@@ -160,6 +160,11 @@ ready(() => {
 			return s + "getAnswers(" + dataVarName + ");";
 		}));
 		window.ShowTestPaper();
+	} else if (window.SpecialSign) {
+		[1, 2, 3].forEach(workStep => {
+			window.SpecialSign(workStep);
+		});
+		setTimeout(callback, process.env.CI ? 3000 : 800);
 	} else if (window.loadQuestion) {
 		window.loadQuestion(0, 99, 1, false);
 		window.questionMust = () => true;
